@@ -4,6 +4,7 @@
             v-for="video in videoArray" 
             :video="video"
             :key="video.etag"
+            @videoSelect="onVideoSelect2"
         >
         </VideoListItem>
     </ul>
@@ -18,7 +19,12 @@ export default {
      components: {
         VideoListItem
     },
-    props: ['videoArray']
+    props: ['videoArray'],
+    methods: {
+        onVideoSelect2(video) {
+            this.$emit('videoSelect', video)
+        }
+    }
 }
 </script>
 
